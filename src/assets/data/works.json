@@ -1,0 +1,102 @@
+[
+    {
+        "id": 0,
+        "name": "Valeeqa",
+        "poster": "/assets/images/works/valeeqa.png",
+        "display": "/assets/images/works/valeeqa_600.png",
+        "images": {
+            "major": "/assets/images/work_folders/valeeqa/major.png",
+            "additional": [
+                "/assets/images/work_folders/valeeqa/second.png",
+                "/assets/images/work_folders/valeeqa/third.png",
+                "/assets/images/work_folders/valeeqa/fourth.png"
+            ]
+        },
+        "Category": "Website",
+        "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum qui deserunt corporis sequi, neque autem itaque, quod perferendis aut facere ea sapiente explicabo dignissimos delectus incidunt illo recusandae error expedita praesentium iure, quibusdam laudantium consequuntur, modi natus. Rerum vel qui ad perferendis facilis, nihil atque dicta! Nulla.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum similique, at quam velit qui ipsam! Quod sed nesciunt, sit dolorum nam nobis asperiores corporis voluptatem odit nostrum velit tempore minima accusamus, amet minus incidunt quasi earum sunt quam vel sit!",
+        "launch": "",
+        "link": "https://medirudiantoni.github.io/valeeqastudio/"
+    },
+    {
+        "id": 1,
+        "name": "Adoria",
+        "poster": "/assets/images/works/adoria.png",
+        "display": "/assets/images/works/adoria_600.png",
+        "images": {
+            "major": "/assets/images/work_folders/adoria/major.png",
+            "additional": [
+                "/assets/images/work_folders/adoria/second.png",
+                "/assets/images/work_folders/adoria/third.png"
+            ]
+        },
+        "Category": "Branding",
+        "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum qui deserunt corporis sequi, neque autem itaque, quod perferendis aut facere ea sapiente explicabo dignissimos delectus incidunt illo recusandae error expedita praesentium iure, quibusdam laudantium consequuntur, modi natus. Rerum vel qui ad perferendis facilis, nihil atque dicta! Nulla.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum similique, at quam velit qui ipsam! Quod sed nesciunt, sit dolorum nam nobis asperiores corporis voluptatem odit nostrum velit tempore minima accusamus, amet minus incidunt quasi earum sunt quam vel sit!",
+        "launch": ""
+    },
+    {
+        "id": 2,
+        "name": "Akira",
+        "poster": "/assets/images/works/akira.png",
+        "display": "/assets/images/works/akira_600.png",
+        "images": {
+            "major": "/assets/images/work_folders/akira/major.png",
+            "additional": [
+                "/assets/images/work_folders/akira/second.png",
+                "/assets/images/work_folders/akira/third.png"
+            ]
+        },
+        "Category": "Website",
+        "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum qui deserunt corporis sequi, neque autem itaque, quod perferendis aut facere ea sapiente explicabo dignissimos delectus incidunt illo recusandae error expedita praesentium iure, quibusdam laudantium consequuntur, modi natus. Rerum vel qui ad perferendis facilis, nihil atque dicta! Nulla.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum similique, at quam velit qui ipsam! Quod sed nesciunt, sit dolorum nam nobis asperiores corporis voluptatem odit nostrum velit tempore minima accusamus, amet minus incidunt quasi earum sunt quam vel sit!",
+        "launch": "",
+        "link": "https://medirudiantoni.github.io/akira/"
+    },
+    {
+        "id": 3,
+        "name": "AT-Tahkim Jws",
+        "poster": "/assets/images/works/jws.png",
+        "display": "/assets/images/works/jws_600.png",
+        "images": {
+            "major": "/assets/images/work_folders/jws/major.png",
+            "additional": [
+                "/assets/images/work_folders/jws/second.png",
+                "/assets/images/work_folders/jws/illustration1.png",
+                "/assets/images/work_folders/jws/third.png"
+            ],
+            "illustration": "/assets/images/work_folders/jws/illustration1.png"
+        },
+        "Category": "Android",
+        "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum qui deserunt corporis sequi, neque autem itaque, quod perferendis aut facere ea sapiente explicabo dignissimos delectus incidunt illo recusandae error expedita praesentium iure, quibusdam laudantium consequuntur, modi natus. Rerum vel qui ad perferendis facilis, nihil atque dicta! Nulla.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum similique, at quam velit qui ipsam! Quod sed nesciunt, sit dolorum nam nobis asperiores corporis voluptatem odit nostrum velit tempore minima accusamus, amet minus incidunt quasi earum sunt quam vel sit!",
+        "launch": ""
+    },
+    {
+        "id": 4,
+        "name": "Yoland Milk",
+        "poster": "/assets/images/works/yoland-milk.png",
+        "display": "/assets/images/works/yoland-milk_600.png",
+        "images": {
+            "major": "/assets/images/work_folders/yoland_milk/major2.png",
+            "additional": [
+                "/assets/images/work_folders/yoland_milk/second.png",
+                "/assets/images/work_folders/yoland_milk/third.png",
+                "/assets/images/work_folders/yoland_milk/fourth.png",
+                "/assets/images/work_folders/yoland_milk/fifth.png"
+            ]
+        },
+        "Category": "Website",
+        "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum qui deserunt corporis sequi, neque autem itaque, quod perferendis aut facere ea sapiente explicabo dignissimos delectus incidunt illo recusandae error expedita praesentium iure, quibusdam laudantium consequuntur, modi natus. Rerum vel qui ad perferendis facilis, nihil atque dicta! Nulla.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum similique, at quam velit qui ipsam! Quod sed nesciunt, sit dolorum nam nobis asperiores corporis voluptatem odit nostrum velit tempore minima accusamus, amet minus incidunt quasi earum sunt quam vel sit!",
+        "launch": "",
+        "link": "http://yolandmilk.rf.gd/"
+    },
+    {
+        "id": 5,
+        "name": "Debian",
+        "poster": "/assets/images/works/debian.png",
+        "display": "/assets/images/works/debian_600.png",
+        "images": {
+            "major": "/assets/images/work_folders/debian/major.png"
+        },
+        "Category": "Android",
+        "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum qui deserunt corporis sequi, neque autem itaque, quod perferendis aut facere ea sapiente explicabo dignissimos delectus incidunt illo recusandae error expedita praesentium iure, quibusdam laudantium consequuntur, modi natus. Rerum vel qui ad perferendis facilis, nihil atque dicta! Nulla.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum similique, at quam velit qui ipsam! Quod sed nesciunt, sit dolorum nam nobis asperiores corporis voluptatem odit nostrum velit tempore minima accusamus, amet minus incidunt quasi earum sunt quam vel sit!",
+        "launch": ""
+    }
+]

@@ -1,0 +1,19 @@
+.itemHover2 {
+    border-radius: 50%;
+}
+
+.itemHover2 .bgHover div {
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    background-color: rgb(37, 37, 37);
+    mix-blend-mode: difference;
+    position: relative;
+    z-index: 100;
+    transform: scale(0);
+    transition: 300ms ease-out;
+}
+.itemHover2:hover .bgHover div {
+    transform: scale(1);
+    transition: 1s;
+}
