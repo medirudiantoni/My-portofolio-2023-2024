@@ -11,6 +11,7 @@ export default {
         'lexend-deca': 'Lexend Deca',
         'bebas-neue': 'Bebas Neue',
         'macondo': 'Macondo',
+        'playfair-display': 'Playfair Display',
       },
       keyframes: {
         marquee: {

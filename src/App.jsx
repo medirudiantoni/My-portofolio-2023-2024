@@ -18,6 +18,7 @@ import Contact from "./pages/contact/contact";
 import Editor from "./pages/blog/article/Editor";
 import TinyMce from "./pages/blog/article/TinyMce";
 import Poster from "./pages/blog/article/Poster";
+import Post from "./pages/blog/post/Post";
 
 function App() {
   const loc = useLocation();
@@ -46,6 +47,7 @@ function App() {
             <Route path="/edit" element={<Editor />} />
             <Route path="/tiny" element={<TinyMce />} />
             <Route path="/poster" element={<Poster />} />
+            <Route path="/post" element={<Post />} />
             <Route path="/projects/*" element={<Not_found />} />
             <Route path="/*" element={<Not_found />} />
           </Routes>
