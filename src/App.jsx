@@ -43,11 +43,11 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:projectId" element={<ViewProject />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/post/:postId" element={<Post />} />
             <Route path="/contact" element={<Contact />} />
             {/* <Route path="/edit" element={<Editor />} /> */}
             <Route path="/tiny" element={<TinyMce />} />
             {/* <Route path="/poster" element={<Poster />} /> */}
-            <Route path="/post" element={<Post />} />
             <Route path="/projects/*" element={<Not_found />} />
             <Route path="/*" element={<Not_found />} />
           </Routes>

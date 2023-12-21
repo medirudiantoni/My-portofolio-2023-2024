@@ -3,17 +3,28 @@ import BlogCard from '../components/BlogCard'
 import mediSg from '../../../assets/img/me/medi-sg.jpg'
 import { db } from '../../../firebase'
 import { collection, getDocs } from 'firebase/firestore'
+import { Link } from 'react-router-dom'
 
 const Section3 = () => {
   const [data, setData] = useState([]);
+
+  const bgColorsTheme = [
+    { name: 'violet' , primary: '#A78BFA', secondary: '#7C3AED', text: '#000000'},
+    { name: 'teal' , primary: '#5EEAD4', secondary: '#0D9488', text: '#000000'},
+    { name: 'dark' , primary: '#2C2C2C', secondary: '#181818', text: '#ffffff'},
+    { name: 'yellow' , primary: '#FDE047', secondary: '#EAB308', text: '#000000'},
+    { name: 'sky' , primary: '#7DD3FC', secondary: '#0EA5E9', text: '#000000'},
+    { name: 'light' , primary: '#E2E8F0', secondary: '#CBD5E1', text: '#000000'},
+  ]
+
   console.log(data)
+  
   const getAllPosts = async () => { 
     try {
       const querySnapshot = await getDocs(collection(db, "medirudiantoni2@gmail.com"));
       let newData = [];
 
       querySnapshot.forEach((doc) => {
-        // Assuming doc.id is unique and can be used as a key in the data object
         newData.push({ id: doc.id, ...doc.data() });
       });
 
@@ -29,10 +40,13 @@ const Section3 = () => {
     <section className="w-screen min-h-screen relative py-20 sm:py-32">
       <div className="w-full min-h-fit max-w-[1920px] mx-auto px-5 grid gap-5 lg:gap-x-5 lg:gap-y-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
         {data && data.map(item => {
+          if(item.id === "comment visitors"){
+            return false
+          }
           return (
-            <div key={item.id}>
-              <BlogCard category={item.category} title={item.title} date={item.date} poster={item.posterUrl} />
-            </div>
+            <Link to={`/post/${item.id}`} key={item.id}>
+              <BlogCard category={item.category} title={item.title} date={item.date} poster={item.posterUrl} primary={item.cardColor ? item.cardColor : bgColorsTheme[0].primary} />
+            </Link>
           )
         })}
         <BlogCard category="Blog" title="Welcome to my personal blog" date="27 Nov 2023" />
