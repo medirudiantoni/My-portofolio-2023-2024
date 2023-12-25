@@ -9,7 +9,7 @@ const Section1 = () => {
             <h1 className="text-4xl sm:text-6xl lg:text-8xl font-semibold text-slate-200">Spiritual Oasis</h1>
         </div>
         <div className="w-full px-2 sm:px-5 h-fit flex justify-center">
-            <div className="w-full px-5 sm:px-20 xl:px-28 py-16 h-fit sm:h-96 bg-[#7752FE] text-white rounded-[30px] relative overflow-hidden">
+            <div className="w-full px-5 sm:px-20 xl:px-28 py-16 h-fit sm:h-96 bg-primary dark:bg-primary-dark text-white rounded-[30px] relative overflow-hidden">
                 <div className="w-full h-full absolute left-0 top-0">
                     <Line1 />
                     <Line2 />

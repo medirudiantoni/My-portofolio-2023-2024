@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import MouseFollower from "mouse-follower";
@@ -19,39 +19,54 @@ import Contact from "./pages/contact/contact";
 import TinyMce from "./pages/blog/article/TinyMce";
 // import Poster from "./pages/blog/article/Poster";
 import Post from "./pages/blog/post/Post";
+import Building1 from "./Building/Building1";
+import transitionPage from "./layout/transition/Transition";
+import { RootContext } from "./context/RootContext";
+import Preloader from "./layout/Preloader/Preloader";
+
+const Homepage = transitionPage(Home);
 
 function App() {
+  const { isDarkMode, handleDarkModeToggle } = useContext(RootContext);
   const loc = useLocation();
   MouseFollower.registerGSAP(gsap);
   const cursor = new MouseFollower({});
   const [isMenu, setIsMenu] = useState();
   const setOke = (val) => {
-    setIsMenu(val)
+    setIsMenu(val);
+  };
+
+  // handleDarkModeToggle(window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+  if(isDarkMode){
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
   }
+
   return (
-    <div className="font-poppins w-screen overflow-x-hidden">
+    <div className={`font-poppins w-screen overflow-x-hidden app-container dark:bg-negative dark:text-white`}>
       <div className="w-full h-fit relative">
-        <Nav status={val => setOke(val)} />
-        <Wsc />
-        <Hsc />
+        <Nav status={(val) => setOke(val)} />
+        {/* <Wsc />
+          <Hsc /> */}
         <ScrollToTop />
         <main>
-        <AnimatePresence mode="wait">
-          <Routes location={loc} key={loc.pathname}>
-            <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:projectId" element={<ViewProject />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/post/:postId" element={<Post />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* <Route path="/edit" element={<Editor />} /> */}
-            <Route path="/tiny" element={<TinyMce />} />
-            {/* <Route path="/poster" element={<Poster />} /> */}
-            <Route path="/projects/*" element={<Not_found />} />
-            <Route path="/*" element={<Not_found />} />
-          </Routes>
-        </AnimatePresence>
+          <AnimatePresence mode="wait">
+            <Routes location={loc} key={loc.pathname}>
+              <Route index element={<Homepage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:projectId" element={<ViewProject />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/post/:postId" element={<Post />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/tiny" element={<TinyMce />} />
+              <Route path="/projects/*" element={<Not_found />} />
+              <Route path="/build" element={<Building1 />} />
+              <Route path="/*" element={<Not_found />} />
+            </Routes>
+          </AnimatePresence>
         </main>
       </div>
     </div>

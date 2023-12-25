@@ -60,7 +60,7 @@ const Section2 = () => {
       <div ref={triggerRef} className="w-full h-screen relative">
         <div
           ref={containerRef}
-          className="w-full h-full flex items-center justify-center bg-[#7752FE] text-white relative"
+          className="w-full h-full flex items-center justify-center bg-primary dark:bg-primary-dark text-white relative"
         >
           <div className="w-full hover:container hover:px-5 md:hover:px-32 h-fit bord2 relative flex items-center cursor-pointer group duration-200">
             <div className="absolute -top-20 sm:-top-36 left-5 sm:left-20 w-fit rotate-[135deg]">
@@ -94,7 +94,7 @@ const Section2 = () => {
           <Medi_2023 />
         </div>
         <div ref={circleButton} className="absolute -bottom-32 sm:-bottom-10 right-[10vw]">
-          <Button1 />
+          <Button1 to={'/About'} name={'About me'} />
         </div>
       </div>
     </section>

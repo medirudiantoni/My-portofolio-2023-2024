@@ -1,35 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { baffle } from 'baffle'
-import mediUnida from "../../../../assets/img/me/medi-unida.png"
-import homeStar from "../../../../assets/img/icons/homeStar.png"
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import mediUnida from "../assets/img/me/medi-unida.png";
+import homeStar from "../assets/img/icons/homeStar.png";
 
-const Section1 = () => {
-  const [vw, setVw] = useState(window.innerWidth)
-  const [vh, setVh] = useState(window.innerHeight)
-  const [isBaffle, setIsBaffle] = useState(true)
+const Building1 = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    const inwidth = () => {
-      setVw(window.innerWidth)
-    }
-    const inHeight = () => {
-      setVh(window.innerHeight)
-    }
-    window.addEventListener('resize', inwidth)
-    window.addEventListener('resize', inHeight)
-    return () => {
-      window.removeEventListener('resize', inwidth)
-      window.removeEventListener('resize', inHeight)
-    }
-  })
+    setIsLoaded(true)
+  }, [])
   return (
-    <section className="w-screen min-h-screen pb-20 lg:pb-0 lg:h-screen relative flex items-start lg:items-center justify-center">
+    <div className="w-screen min-h-screen pb-20 lg:pb-0 lg:h-screen relative flex items-start lg:items-center justify-center">
+      <div className="absolute left-0 bottom-full h-[10vh] w-1/2 z-[1000] bg-white"></div>
       <div className="relative z-10 container bord2 border-blue-600 h-fit bg-transparent grid grid-cols-12 mx-auto px-5">
         <div className="col-span-12 lg:col-span-4 w-full bord2 flex items-end">
-          <div className="relative w-full h-fit hidden lg:inline-block pr-10">
+          <div className="relative w-full h-fit hidden lg:inline-block">
             <p className="absolute -left-8 -rotate-6 -top-8 text-8xl font-bold">
               "
             </p>
-            <p className="text-lg">
+            <p className="w-4/6">
               Hello, I am Medi, an appreciator of visually stunning graphic
               content, striving to bring it to life in tangible forms.
             </p>
@@ -88,12 +76,12 @@ const Section1 = () => {
         </div>
       </div>
       <div className="background absolute top-0 left-0 w-full h-screen flex items-center justify-center">
-        <p className="text-[20rem] font-outline-2-slate-200 text-transparent font-semibold dark:opacity-10">
+        <p className="text-[20rem] font-outline-2-slate-200 text-transparent font-semibold">
           Portfolio
         </p>
       </div>
-    </section>
-  )
-}
+    </div>
+  );
+};
 
-export default Section1
+export default Building1;

@@ -54,8 +54,8 @@ const Section5Content = () => {
   return (
     <div ref={triggerRef} className="w-screen h-screen relative">
       <div className="w-full h-full relative">
-        <div className="w-full h-full absolute left-0 bottom-full bg-slate-200">
-          <div ref={divRef} className="w-full h-full bg-slate-300 flex items-center justify-center px-5 sm:px-20 xl:px-32 overflow-hidden">
+        <div className="w-full h-full absolute left-0 bottom-full bg-slate-200 dark:bg-negative">
+          <div ref={divRef} className="w-full h-full bg-slate-300 dark:bg-neutral-800 flex items-center justify-center px-5 sm:px-20 xl:px-32 overflow-hidden">
             <div ref={containerRef} className="container flex items-center justify-center relative">
               <div className="w-4/6 md:w-2/5 h-fit rounded-3xl overflow-hidden relative z-10">
                 <img src={medi} alt={medi} className='w-full h-full object-cover' />
@@ -65,14 +65,14 @@ const Section5Content = () => {
               </div>
               <div className="section5-text absolute w-screen h-fit whitespace-nowrap text-transparent z-20">
                 <div className="h-full w-fit flex gap-10">
-                  <p className="text-7xl md:text-9xl font-semibold font-outline-2">Togather, We can change the future</p>
-                  <p className="text-7xl md:text-9xl font-semibold font-outline-2">Togather, We can change the future</p>
+                  <p className="text-7xl md:text-9xl font-semibold font-outline-2 dark:font-outline-2-slate-200">Togather, We can change the future</p>
+                  <p className="text-7xl md:text-9xl font-semibold font-outline-2 dark:font-outline-2-slate-200">Togather, We can change the future</p>
                 </div>
               </div>
-              <div className="section5-text absolute w-screen h-fit whitespace-nowrap text-[#222]">
+              <div className="section5-text absolute w-screen h-fit whitespace-nowrap text-[#222] dark:text-white">
                 <div className="h-full w-fit flex gap-10">
-                  <p className="text-7xl md:text-9xl font-semibold font-outline-2">Togather, We can change the future</p>
-                  <p className="text-7xl md:text-9xl font-semibold font-outline-2">Togather, We can change the future</p>
+                  <p className="text-7xl md:text-9xl font-semibold font-outline-2 dark:font-outline-2-slate-200">Togather, We can change the future</p>
+                  <p className="text-7xl md:text-9xl font-semibold font-outline-2 dark:font-outline-2-slate-200">Togather, We can change the future</p>
                 </div>
               </div>
             </div>

@@ -62,7 +62,7 @@ const CommentCard = ({
   };
 
   return (
-    <div className="w-full p-2 pb-4 border-b rounded-xl relative">
+    <div className="w-full p-2 pb-4 rounded-xl relative">
       <div className="w-full h-fit flex gap-4 items-start">
         <div className="w-7 h-7 rounded-full overflow-hidden bg-slate-400">
           <img
@@ -114,7 +114,7 @@ const CommentCard = ({
             <motion.div
               initial={{ scale: 0, transformOrigin: "left top" }}
               animate={{ scale: 1, transformOrigin: "left top" }}
-              className="w-full h-fit p-2 my-2 bg-slate-100 shadow-xl rounded-xl flex flex-col items-end gap-2"
+              className="w-full h-fit p-2 my-2 bg-slate-100 dark:bg-black shadow-xl rounded-xl flex flex-col items-end gap-2"
             >
               <textarea
                 name="comment"

@@ -40,9 +40,9 @@ const Section2 = () => {
   }, []);
   const jktTime = new Date(isTime ? isTime.datetime : false);
   return (
-    <section className="w-screen h-screen bg-[#7752FE] relative">
+    <section className="w-screen h-screen bg-primary dark:bg-primary-dark relative">
         {isSuccess ? <Success onClick={() => setIsSuccess(false)} /> : null}
-        <div className="absolute w-full h-[200vh] left-0 bottom-0 bg-[#7752FE] text-white">
+        <div className="absolute w-full h-[200vh] left-0 bottom-0 bg-primary dark:bg-primary-dark text-white">
             <div className="w-full h-fit pt-10 pb-5 lg:py-0 md:h-screen bord2 border-teal-200 flex justify-center items-end">
                 <div className="container h-4/6 bord2 border-orange-400 px-5 sm:px-20 xl:px-32 flex flex-col justify-evenly">
                     <div className="w-full h-fit flex flex-wrap justify-between">

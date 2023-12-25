@@ -54,7 +54,6 @@ const WorkTogather = forwardRef((props, ref) => {
 })
 
 WorkTogather.defaultProps = {
-    className: 'bg-white text-black',
     levelUp: levelUp,
     checked: checked,
 }

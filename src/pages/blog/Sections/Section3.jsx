@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import BlogCard from '../components/BlogCard'
-import mediSg from '../../../assets/img/me/medi-sg.jpg'
 import { db } from '../../../firebase'
 import { collection, getDocs } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
+import { RootContext } from '../../../context/RootContext'
 
 const Section3 = () => {
+  const {handleBlogPosts} = useContext(RootContext)
   const [data, setData] = useState([]);
 
   const bgColorsTheme = [
     { name: 'violet' , primary: '#A78BFA', secondary: '#7C3AED', text: '#000000'},
     { name: 'teal' , primary: '#5EEAD4', secondary: '#0D9488', text: '#000000'},
-    { name: 'dark' , primary: '#2C2C2C', secondary: '#181818', text: '#ffffff'},
-    { name: 'yellow' , primary: '#FDE047', secondary: '#EAB308', text: '#000000'},
-    { name: 'sky' , primary: '#7DD3FC', secondary: '#0EA5E9', text: '#000000'},
-    { name: 'light' , primary: '#E2E8F0', secondary: '#CBD5E1', text: '#000000'},
   ]
-
-  console.log(data)
   
   const getAllPosts = async () => { 
     try {
@@ -29,6 +24,7 @@ const Section3 = () => {
       });
 
       setData(newData);
+      handleBlogPosts(newData);
     } catch (error) {
       console.error("Error getting documents: ", error);
     }
@@ -45,15 +41,10 @@ const Section3 = () => {
           }
           return (
             <Link to={`/post/${item.id}`} key={item.id}>
-              <BlogCard category={item.category} title={item.title} date={item.date} poster={item.posterUrl} primary={item.cardColor ? item.cardColor : bgColorsTheme[0].primary} />
+              <BlogCard category={item.category} title={item.title} date={item.date} poster={item.posterUrl} primary={item.cardColor ? item.cardColor.primary : bgColorsTheme[0].primary} textColor={item.cardColor ? item.cardColor.text : bgColorsTheme[0].text} secondary={item.cardColor ? item.cardColor.secondary : bgColorsTheme[0].secondary} />
             </Link>
           )
         })}
-        <BlogCard category="Blog" title="Welcome to my personal blog" date="27 Nov 2023" />
-        <BlogCard category="Journey" title="Vacation in singapore" date="27 Nov 2023" poster={mediSg} className="bg-gray-800 text-white " />
-        <BlogCard category="Assumption" title="Islam in modern day" date="27 Nov 2023" poster={'https://source.unsplash.com/1920x1080?islam'} className="bg-green-400" />
-        <BlogCard category="Insight" title="Why we don't have argue with stupid starnger on the internet?" date="27 Nov 2023" poster={'https://source.unsplash.com/1920x1200?social media'} className="bg-orange-400" />
-        <BlogCard category="Game" title="League of legends: wild rift" date="27 Nov 2023" poster={'https://www.riotgames.com/darkroom/1440/08bcc251757a1f64e30e0d7e8c513d35:be16374e056f8268996ef96555c7a113/wr-cb1-announcementarticle-banner-1920x1080.png'} className="bg-teal-400" />
       </div>
     </section>
   )

@@ -50,7 +50,7 @@ const Section3 = () => {
 
   return (
     <section className="w-full min-h-screen relative">
-      <div ref={triggerRef} className="w-full h-screen px-5 sm:px-20 bg-white bord2 border-blue-600 flex flex-col items-center justify-center relative z-10">
+      <div ref={triggerRef} className="w-full h-screen px-5 sm:px-20 flex flex-col items-center justify-center relative z-10">
         <div className="container h-fit flex flex-col">
           <div className="mb-[5vh]"><p className="text-4xl sm:text-5xl tracking-tighter font-semibold">Recent Work</p></div>
           <div className="w-full h-fit flex whitespace-nowrap bord2 border-orange-600">

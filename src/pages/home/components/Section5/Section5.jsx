@@ -3,7 +3,7 @@ import Section5Content from './Contents'
 
 const Section5 = () => {
   return (
-    <section className="w-screen min-h-screen bg-slate-300">
+    <section className="w-screen min-h-screen bg-slate-300 dark:bg-negative">
       <Section5Content />
     </section>
   )

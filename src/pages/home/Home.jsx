@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import transitionPage from '../../layout/transition/Transition'
 import Section1 from './components/Section1/Section1'
 import Section2 from './components/Section2/Section2'
@@ -10,10 +10,16 @@ import Section6 from './components/Section6/Section6'
 import Section7 from './components/Section7/Section7'
 import Section8 from './components/Section8/Section8'
 import FooterAlt from '../../layout/footerAlt/FooterAlt'
+import { RootContext } from '../../context/RootContext'
 
 const Home = () => {
+  const { handleRegistRoute} = useContext(RootContext)
+  useEffect(() => {
+    handleRegistRoute('home')
+    document.title = 'Medi Rudiant'
+  }, [])
   return (
-    <div className="w-full min-h-screen flex flex-col items-start justify-center bord border-red-600">
+    <div className="w-full min-h-screen flex flex-col items-start justify-center bg-white dark:bg-neutral-900 dark:text-white">
       <Section1 />
       <Section2 />
       <Section3 />
@@ -26,4 +32,4 @@ const Home = () => {
   )
 }
 
-export default transitionPage(Home)
+export default Home

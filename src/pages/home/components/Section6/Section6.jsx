@@ -9,7 +9,7 @@ const Section6 = () => {
         <SvgPathAnimation />
       </div>
       <Section6Contents />
-      <div className="w-screen h-screen bg-slate-300"></div>
+      <div className="w-screen h-screen bg-slate-300 dark:bg-negative"></div>
     </section>
   );
 };

@@ -1,11 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#7752FE',
+        'primary-dark': '#4c1d95',
+        negative: '#171717'
+      },
       fontFamily: {
         'poppins': 'Poppins',
         'lexend-deca': 'Lexend Deca',

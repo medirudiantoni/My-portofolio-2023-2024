@@ -26,7 +26,7 @@ import CommentCard from "./CommentCard";
 const PostComment = ({ postId }) => {
   const [isBlogPost, setIsBlogPost] = useState()
   const [isReactButton, setIsReactButton] = useState(false);
-  const [isReaction, setIsReaction] = useState("");
+  const [isReaction, setIsReaction] = useState(false);
   const [isReactions, setIsReactions] = useState([]);
   const [isComment, setIsComment] = useState();
   const [isSignedIn, setIsSignedIn] = useState();
@@ -117,7 +117,9 @@ const PostComment = ({ postId }) => {
         }
       }
     }
-
+    setTimeout(() => {
+      setIsReaction(false)
+    }, 1000);
   }
 
   const saveComment = async (user, photo) => {
@@ -283,9 +285,9 @@ const PostComment = ({ postId }) => {
         <div
           onMouseEnter={() => setIsReactButton(true)}
           onMouseLeave={() => setIsReactButton(false)}
-          className=" flex gap-2 w-full justify-between sm:justify-start sm:w-fit"
+          className=" flex gap-2 w-full relative sm:justify-start sm:w-fit"
         >
-          <button className="py-2 px-4 w-fit relative h-fit rounded-lg bg-slate-200 hover:bg-slate-300 hover:scale-95 duration-100">
+          <button className="py-2 px-4 w-fit relative h-fit rounded-lg bg-slate-200 dark:bg-neutral-700 hover:bg-slate-300 dark:hover:bg-neutral-800 hover:scale-95 duration-100">
             Your reaction
           </button>
           <AnimatePresence mode="wait">
@@ -305,7 +307,7 @@ const PostComment = ({ postId }) => {
                 }}
                 exit={{ y: 10, opacity: 0, scale: 0, transformOrigin: "left" }}
                 transition={{ duration: 0.1, ease: "easeInOut" }}
-                className="w-fit h-10 py-2 px-4 rounded-lg bg-slate-200 shadow-xl flex items-end gap-2 absolute left-0 lg:relative"
+                className="w-fit h-10 py-2 px-4 rounded-lg bg-slate-200 dark:bg-neutral-800 shadow-xl flex items-end gap-2 absolute left-0 lg:relative"
               >
                 {reactions.map((react, i) => {
                   return (
@@ -317,6 +319,9 @@ const PostComment = ({ postId }) => {
                       transition={{ duration: 0.1 + i / 50 }}
                       onClick={() => {
                         setIsReaction(react)
+                        // setTimeout(() => {
+                        //   setIsReaction()
+                        // }, 2000);
                         saveReactions(react)
                         setIsReactButton(false)
                       }}
@@ -329,12 +334,21 @@ const PostComment = ({ postId }) => {
               </motion.div>
             )}
           </AnimatePresence>
-          <div className="text-2xl p-1 flex gap-2">
-            <div className="">{isReaction && isReaction.icon}</div>
+          <div className="text-2xl p-1 flex gap-2 absolute left-0 bottom-1/2">
+            <AnimatePresence>
+              {isReaction && (
+                <motion.div 
+                initial={{y: 10, opacity: 1}}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -200, opacity: 0 }}
+                transition={{ duration: 1.2, ease: 'linear' }}
+                className="relative">{isReaction.icon}</motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
         <div className="flex gap-4">
-          <div className="py-2 px-4 rounded-lg bg-slate-200 shadow-xl relative flex gap-2 group cursor-pointer">
+          <div className="py-2 px-4 rounded-lg bg-slate-200 dark:bg-negative shadow-xl relative flex gap-2 group cursor-pointer">
             {isReactions ? isReactions.length > 0 ? isReactions.map((reaction, i) => {
               return <p key={i}>{reaction.icon} {reaction.length + 1}</p>
             }) : <p>😁 0</p> : <p>😁 0</p>}
@@ -350,7 +364,7 @@ const PostComment = ({ postId }) => {
           cols="30"
           rows="5"
           onChange={(e) => setIsComment(e.target.value)}
-          className="bg-slate-200 rounded-lg w-full py-2 px-4"
+          className="bg-slate-200 dark:bg-neutral-950 rounded-lg w-full py-2 px-4"
         ></textarea>
         <div className="flex flex-col gap-2 items-end group relative">
           <button
@@ -359,12 +373,12 @@ const PostComment = ({ postId }) => {
           >
             {isSignedIn
               ? `Send as ${isSignedIn.displayName}`
-              : "Send as Google user"}
+              : "Send"}
           </button>
           {isSignedIn && (
             <button
               onClick={handleSignIn}
-              className="py-2 px-4 w-fit h-fit rounded-lg border-2 hover:bg-slate-200 active:bg-slate-300 active:scale-95 duration-100 scale-0 group-hover:scale-100 origin-top absolute top-full"
+              className="py-2 px-4 w-fit h-fit rounded-lg border-2 hidden lg:block hover:bg-slate-200 active:bg-slate-300 active:scale-95 duration-100 scale-0 group-hover:scale-100 origin-top absolute top-full"
             >
               or send with another google account
             </button>

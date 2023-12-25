@@ -45,17 +45,17 @@ const Section1 = () => {
           </div>
           <div className="w-full h-fit flex flex-wrap gap-5 items-center justify-between text-sm sm:text-xl font-semibold">
             
-            <ButtonStyleVio href="mailto:medirudiantoni2+memine@gmail.com" name="medirudiantoni2@gmail.com" />
-            <ButtonStyleVio href="https://wa.me/6281273624740" name="+62 812 7362 4740" />
+            <ButtonStyleVio href="mailto:medirudiantoni2+memine@gmail.com" name="medirudiantoni2@gmail.com" classDark={true} />
+            <ButtonStyleVio href="https://wa.me/6281273624740" name="+62 812 7362 4740" classDark={true} />
             
           </div>
         </div>
       </div>
-      <div className="absolute z-10 left-0 bottom-0 w-full h-fit bg-white">
-        <div className="w-full h-fit animate-marquee-normal bg-white">
+      <div className="absolute z-10 left-0 bottom-0 w-full h-fit bg-white dark:bg-neutral-800">
+        <div className="w-full h-fit animate-marquee-normal bg-white dark:bg-neutral-800">
             <WorkTogather />
         </div>
-        <div ref={divRef} className="w-full h-0 bg-violet-900"></div>
+        <div ref={divRef} className="w-full h-0 bg-violet-950"></div>
       </div>
     </section>
   );

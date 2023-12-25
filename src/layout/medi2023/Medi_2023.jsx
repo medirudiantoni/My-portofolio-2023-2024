@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 
 const Medi_2023 = forwardRef((props, ref) => {
-  const theText = <p className="font-bebas-neue text-2xl lg:text-4xl lg:translate-y-1">Medi Rudiant, 2023 - </p>
+  const theText = <p className="font-bebas-neue text-2xl lg:text-4xl lg:translate-y-1">Medi Rudiant, 2024 - </p>
   const textLength = 20;
   const textArray = Array.from({ length: textLength }, (_, index) => index);
   return (

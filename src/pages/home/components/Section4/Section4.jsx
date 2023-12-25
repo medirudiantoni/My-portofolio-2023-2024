@@ -32,10 +32,12 @@ const Section4 = () => {
   return (
     <section className='w-full min-h-screen relative bord2 border-black'>
       <div ref={triggerRef} className="w-full min-h-screen relative">
-        <div className="w-full animate-marquee-normal">
-          <WorkTogather />
+        <div className="w-full dark:bg-violet-950">
+          <div className="w-full animate-marquee-normal">
+            <WorkTogather />
+          </div>
         </div>
-        <div className="w-full h-screen bg-violet-600 text-white px-5 sm:px-20 xl:px-32 flex items-center justify-center">
+        <div className="w-full h-screen bg-primary dark:bg-primary-dark text-white px-5 sm:px-20 xl:px-32 flex items-center justify-center">
           <div className="container">
             <div className="w-full h-fit py-20">
               <Expertise />
