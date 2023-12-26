@@ -9,6 +9,9 @@ import checked from '../../../../assets/img/icons/checked_white.png';
 const Section4 = () => {
   const androidApp = ['Javascript', 'Firebase', 'PWA', 'Apache Cordova'];
   const graphicDesign = ['Adobe Illustrator', 'Figma', 'Canva 😁'];
+  const webDevContent = 'I specialize in creating engaging and user-friendly online experiences. From responsive website development to performance optimization, I focus on every detail to ensure your website is not only visually captivating but also effective in achieving your business goals.'
+  const graphicDesignContent = 'Graphic design is the visual art that can enhance your brand. From memorable logos to attention-grabbing marketing materials, I work hard to create designs that reflect your unique identity and business values.'
+  const androidAppContent = 'If you have a need for a responsive Android application accessible across various devices, I have experience in using technologies like Progressive Web Apps (PWA), Ionic, and Apache Cordova. With this approach, I can assist you in creating robust and reliable applications.'
   const triggerRef = useRef(null);
   const divRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
@@ -40,9 +43,9 @@ const Section4 = () => {
         <div className="w-full h-screen bg-primary dark:bg-primary-dark text-white px-5 sm:px-20 xl:px-32 flex items-center justify-center">
           <div className="container">
             <div className="w-full h-fit py-20">
-              <Expertise />
-              <Expertise name="Android APP" text={androidApp} />
-              <Expertise name="Graphic Design" text={graphicDesign} third={true} />
+              <Expertise content={webDevContent} />
+              <Expertise name="Android APP" propText={androidApp} content={androidAppContent} />
+              <Expertise name="Graphic Design" propText={graphicDesign} third={true} content={graphicDesignContent} />
             </div>
           </div>
         </div>

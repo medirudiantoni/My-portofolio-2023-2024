@@ -23,11 +23,14 @@ import Building1 from "./Building/Building1";
 import transitionPage from "./layout/transition/Transition";
 import { RootContext } from "./context/RootContext";
 import Preloader from "./layout/Preloader/Preloader";
+import MyHelmet from "./layout/helmet/MyHelmet";
+import AssetChecker from "./layout/Preloader/AssetsChecker";
 
 const Homepage = transitionPage(Home);
 
 function App() {
-  const { isDarkMode, handleDarkModeToggle } = useContext(RootContext);
+  const { isDarkMode, handleFalseFirstLoad } = useContext(RootContext);
+  const [firstLoad, setFirstLoad] = useState(true)
   const loc = useLocation();
   MouseFollower.registerGSAP(gsap);
   const cursor = new MouseFollower({});
@@ -36,7 +39,12 @@ function App() {
     setIsMenu(val);
   };
 
-  // handleDarkModeToggle(window.matchMedia('(prefers-color-scheme: dark)').matches)
+  useEffect(() => {
+    setTimeout(() => {
+      setFirstLoad(false)
+      handleFalseFirstLoad()
+    }, 5000);
+  }, [])
 
   if(isDarkMode){
     document.documentElement.classList.add('dark')
@@ -48,13 +56,16 @@ function App() {
     <div className={`font-poppins w-screen overflow-x-hidden app-container dark:bg-negative dark:text-white`}>
       <div className="w-full h-fit relative">
         <Nav status={(val) => setOke(val)} />
-        {/* <Wsc />
-          <Hsc /> */}
         <ScrollToTop />
+        <MyHelmet />
+        <AnimatePresence mode="wait">
+          {firstLoad && <Preloader />}
+        </AnimatePresence>
+        {/* <Preloader /> */}
         <main>
           <AnimatePresence mode="wait">
             <Routes location={loc} key={loc.pathname}>
-              <Route index element={<Homepage />} />
+              <Route index element={<Homepage firstLoad={firstLoad} />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:projectId" element={<ViewProject />} />

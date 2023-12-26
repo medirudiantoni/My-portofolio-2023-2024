@@ -14,9 +14,9 @@ const Success = (props) => {
   }, [])
   return (
     <div className="fixed z-[1099] w-screen h-screen top-0 left-0 flex items-center justify-center">
-        <div className={`absolute bg-white rounded-full aspect-square w-0 ${isScaled ? 'w-[200vw] duration-1000' : ''}`}></div>
-        <div className={`absolute z-10 bg-green-600 rounded-full aspect-square w-0 ${isScaled ? 'w-[200vw] duration-1000 delay-100' : ''}`}></div>
-        <div className={`absolute z-10 bg-white rounded-full aspect-square w-0 ${isScaled ? 'w-[200vw] duration-1000 delay-200' : ''}`}></div>
+        <div className={`absolute bg-white rounded-full aspect-square w-0 ${isScaled ? 'w-[300vw] duration-1000' : ''}`}></div>
+        <div className={`absolute z-10 bg-green-600 rounded-full aspect-square w-0 ${isScaled ? 'w-[300vw] duration-1000 delay-100' : ''}`}></div>
+        <div className={`absolute z-10 bg-white rounded-full aspect-square w-0 ${isScaled ? 'w-[300vw] duration-1000 delay-200' : ''}`}></div>
         <div className={`absolute z-10 rounded-full aspect-square w-32 ease-out ${isScaled ? 'scale-100 duration-700 delay-300' : 'scale-0'} ${isMove ? '-translate-y-16 duration-100' : ' ease-[cubic-bezier(.42,1.81,.54,.54)]'} flex items-center justify-center`}>
             <img src={success500} alt="success" className='w-full h-full object-cover' />
         </div>

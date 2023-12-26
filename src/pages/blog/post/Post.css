@@ -19,5 +19,26 @@
 }
 
 #post-content img {
-    border-radius: 40px;
+    width: 50%;
+    max-height: 60vh;
+    object-fit: cover;
+    margin-bottom: 24px;
+}
+
+@media screen and (max-width: 1620px) {
+    #post-content img {
+        width: 75%;
+        max-height: fit-content;
+        object-fit: cover;
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 765px) {
+    #post-content img {
+        width: 100%;
+        max-height: fit-content;
+        object-fit: cover;
+        margin-bottom: 24px;
+    }
 }

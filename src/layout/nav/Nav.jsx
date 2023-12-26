@@ -23,7 +23,7 @@ const Nav = (props) => {
   
   return (
     <nav className='relative lg:absolute z-[1000] top-0 left-0 w-full h-fit py-5 px-4 sm:py-[5vh] sm:px-10 flex items-center justify-between'>
-        <div className={`text-lg sm:text-xl font-semibold font-poppins block dark:text-white ${ currentRoute === "home" ? 'text-transparent lg:text-black' : '' }`}><Link to={'/'}>Medi Rudiant.</Link></div>
+        <div className={`text-lg sm:text-xl font-semibold font-poppins block dark:text-white ${ currentRoute === "home" ? 'text-transparent dark:text-transparent lg:text-black' : '' }`}><Link to={'/'}>Medi Rudiant.</Link></div>
         <div className={`sm:text-lg cursor-pointer py-2 px-4 sm:rounded-lg sm:bg-white/400 duration-100 group backdrop-blur-lg fixed top-4 right-2 sm:top-[4vh] sm:right-6 z-[1100] overflow-hidden`} onClick={() => {
           setIsMenu(!isMenu)
           }}>

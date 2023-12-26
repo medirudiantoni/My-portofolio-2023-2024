@@ -11,6 +11,8 @@ import brightnessWhite from '../../../assets/img/icons/brightnessWhite.png'
 import RunningTextNav from './RunningText';
 import { borderBottom, menuSlide, slideText } from './animNav';
 import { RootContext } from '../../../context/RootContext';
+import SplitType from 'split-type';
+import Baffle from 'baffle';
 
 const Menu = (props) => {
   const {isDarkMode, handleDarkModeToggle} = useContext(RootContext);
@@ -22,6 +24,23 @@ const Menu = (props) => {
     { name: 'Twitter', url: 'https://twitter.com/medi_rudiant89' },
     { name: 'Dribbble', url: 'https://dribbble.com/medi89' },
   ];
+
+  const baffleSplit = (e, delay) => {
+    const mediChar = new SplitType(e, {types: "chars"})
+    mediChar.chars.map((letter, i) => {
+      const char = Baffle(letter)
+      char.set({ speed: 50 })
+      char.start();
+      setTimeout(() => {
+        char.reveal()
+      }, 100 + (i * delay));
+    })
+  }
+
+  const handleMouseEnter = (e) => {
+    const pElement = e.currentTarget.querySelector('p');
+    baffleSplit(pElement, 50)
+  }
 
   useEffect(()=>{
     const inHeight = () => {
@@ -46,7 +65,7 @@ const Menu = (props) => {
             <div className="mb-[1.5vh] md:mb-[5.5vh] text-[2.5vh] font-semibold text-white/70"><p>Socials</p></div>
             <div className="w-full h-fit flex flex-row md:flex-col gap-3">
               {socials.map((social, i) => {
-                return <a href={social.url} key={i}><div className="w-full hover:text-blue-200">{social.name}</div></a>
+                return <a href={social.url} key={i} target='_blank'><div className="w-full hover:text-blue-200">{social.name}</div></a>
               })}
             </div>
           </div>
@@ -69,12 +88,13 @@ const Menu = (props) => {
             {menus.map((menu, i)=> {
               return (
                 <Link to={menu === 'Home' ? '/' : `/${menu}`} key={i}>
-                  <div className="w-full py-[1.5vh] md:py-[2.4vh] relative flex items-center pr-5 font-semibold overflow-hidden group hover:bg-violet-900 dark:hover:bg-violet-950 hover:pl-5 duration-200"  onClick={props.onClickItem}>
+                  <div className="w-full py-[1.5vh] md:py-[2.4vh] relative flex items-center pr-5 font-semibold overflow-hidden group hover:bg-violet-900 dark:hover:bg-violet-950 hover:pl-5 duration-200 menu-item" onClick={props.onClickItem}>
                     <motion.div 
                     variants={slideText}
                     initial="initial"
                     animate={slideText.enter(i)}
                     exit={slideText.exit(i)}
+                    onMouseEnter={(e) => handleMouseEnter(e)}
                     className="w-full flex items-center justify-between">
                         <p>{menu}</p>
                         <div className="scale-50 md:scale-90">
@@ -86,7 +106,7 @@ const Menu = (props) => {
                     initial="initial"
                     animate={borderBottom.enter(i)}
                     exit={borderBottom.exit(i)}
-                    className="absolute top-0 left-0 w-full h-full border-b-2 border-white"></motion.div>
+                    className="absolute bottom-0 left-0 w-full h-0 border-b-2 border-white"></motion.div>
                   </div>
                 </Link>
               )

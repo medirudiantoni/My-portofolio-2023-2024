@@ -6,6 +6,7 @@ const RootProvider = ({ children }) => {
   const [currentRoute, setCurrentRoute] = useState(null);
   const [blogPosts, setBlogPosts] = useState();
   const [isDarkMode, setIsDarkMode] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const [firstLoad, setFirstLoad] = useState(true)
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -43,13 +44,19 @@ const RootProvider = ({ children }) => {
     setIsDarkMode(value)
   }
 
+  const handleFalseFirstLoad = () => {
+    setFirstLoad(false)
+  }
+
   const contextValue = {
     currentRoute,
     blogPosts,
     isDarkMode,
+    firstLoad,
     handleRegistRoute,
     handleBlogPosts,
-    handleDarkModeToggle
+    handleDarkModeToggle,
+    handleFalseFirstLoad,
   };
 
   return <RootContext.Provider value={contextValue}>{children}</RootContext.Provider>;
