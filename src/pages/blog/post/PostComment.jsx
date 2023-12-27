@@ -19,12 +19,12 @@ import {
   collection,
   deleteDoc,
   arrayRemove,
-  serverTimestamp
+  serverTimestamp,
 } from "firebase/firestore";
 import CommentCard from "./CommentCard";
 
 const PostComment = ({ postId }) => {
-  const [isBlogPost, setIsBlogPost] = useState()
+  const [isBlogPost, setIsBlogPost] = useState();
   const [isReactButton, setIsReactButton] = useState(false);
   const [isReaction, setIsReaction] = useState(false);
   const [isReactions, setIsReactions] = useState([]);
@@ -34,24 +34,31 @@ const PostComment = ({ postId }) => {
   const [isReplyText, setIsReplyText] = useState();
   const [toReply, setToReply] = useState(false);
 
+  console.log({ isSignedIn });
+  setTimeout(() => {
+    console.log("isSignedIn setelah 5 dtk :", isSignedIn);
+  }, 5000);
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsSignedIn(user);
       } else {
         setIsSignedIn();
       }
     });
-  });
+
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
-    const docRef = doc(db, "medirudiantoni2@gmail.com", postId)
+    const docRef = doc(db, "medirudiantoni2@gmail.com", postId);
     const unsubscribe = onSnapshot(docRef, (snapshot) => {
-      setIsReactions(snapshot.data().reactions)
-    })
+      setIsReactions(snapshot.data().reactions);
+    });
 
-    return () => unsubscribe()
-  }, [])
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     const docRef = doc(db, "medirudiantoni2@gmail.com", postId);
@@ -66,7 +73,7 @@ const PostComment = ({ postId }) => {
         });
       });
 
-      let sortedCommentData = commentsData.sort((a, b) => b - a)
+      let sortedCommentData = commentsData.sort((a, b) => b - a);
       setIsCommentData(sortedCommentData);
     });
 
@@ -83,44 +90,46 @@ const PostComment = ({ postId }) => {
 
   const saveReactions = async (react) => {
     const docRef = doc(db, "medirudiantoni2@gmail.com", postId);
-    if(isReactions === undefined){
+    if (isReactions === undefined) {
       try {
         updateDoc(docRef, {
-          reactions: arrayUnion(react)
-        })
-      } catch (error){
-        console.log(error)
+          reactions: arrayUnion(react),
+        });
+      } catch (error) {
+        console.log(error);
       }
     } else {
-      const theReaction = isReactions.find(reaction => reaction.icon === react.icon);
-      if(theReaction === undefined){
+      const theReaction = isReactions.find(
+        (reaction) => reaction.icon === react.icon
+      );
+      if (theReaction === undefined) {
         try {
           updateDoc(docRef, {
-            reactions: arrayUnion(react)
-          })
+            reactions: arrayUnion(react),
+          });
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
       } else {
-        isReactions.map(reaction => {
-          if(reaction.mean === react.mean){
-            reaction.length = reaction.length + 1
+        isReactions.map((reaction) => {
+          if (reaction.mean === react.mean) {
+            reaction.length = reaction.length + 1;
           }
         });
-    
+
         try {
           updateDoc(docRef, {
-            reactions: isReactions
-          })
+            reactions: isReactions,
+          });
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
       }
     }
     setTimeout(() => {
-      setIsReaction(false)
+      setIsReaction(false);
     }, 1000);
-  }
+  };
 
   const saveComment = async (user, photo) => {
     const docRef = doc(db, "medirudiantoni2@gmail.com", postId);
@@ -133,18 +142,20 @@ const PostComment = ({ postId }) => {
         comment: isComment,
         user: user,
         photo: photo,
-        replies: []
+        replies: [],
       });
       console.log("Comment added successfully!");
     } catch (error) {
       console.error("Error adding comment: ", error);
     }
 
-    setIsComment('');
+    setIsComment("");
   };
 
   const deleteCommentWithConfirmation = (commentId) => {
-    const confirmation = window.confirm("Apakah Anda yakin ingin menghapus komentar ini?");
+    const confirmation = window.confirm(
+      "Apakah Anda yakin ingin menghapus komentar ini?"
+    );
     if (confirmation) {
       deleteComment(commentId);
     } else {
@@ -154,9 +165,9 @@ const PostComment = ({ postId }) => {
 
   const deleteComment = async (commentId) => {
     const docRef = doc(db, "medirudiantoni2@gmail.com", postId);
-    const commentsCollectionRef = collection(docRef, 'comments');
+    const commentsCollectionRef = collection(docRef, "comments");
     const commentDocRef = doc(commentsCollectionRef, commentId);
-  
+
     try {
       await deleteDoc(commentDocRef);
       console.log("Comment deleted successfully!");
@@ -167,21 +178,21 @@ const PostComment = ({ postId }) => {
 
   const saveReply = async (commentId, user, photo, replyComment) => {
     const docRef = doc(db, "medirudiantoni2@gmail.com", postId);
-    const commentsCollectionRef = collection(docRef, 'comments');
+    const commentsCollectionRef = collection(docRef, "comments");
     const commentDocRef = doc(commentsCollectionRef, commentId);
-  
+
     try {
       const newReply = {
         id: `${new Date()}`,
         comment: replyComment,
         user: user,
-        photo: photo
+        photo: photo,
       };
-  
+
       await updateDoc(commentDocRef, {
-        replies: arrayUnion(newReply)
+        replies: arrayUnion(newReply),
       });
-  
+
       console.log("Reply added successfully!");
     } catch (error) {
       console.error("Error adding reply: ", error);
@@ -189,34 +200,34 @@ const PostComment = ({ postId }) => {
   };
 
   const deleteReplyWithConfirmation = (commentId, replyId) => {
-    const confirm = window.confirm('delete your reply?');
-    if(confirm){
-      deleteReply(commentId, replyId)
+    const confirm = window.confirm("delete your reply?");
+    if (confirm) {
+      deleteReply(commentId, replyId);
     } else {
-      console.log('delete is canceled')
+      console.log("delete is canceled");
     }
-  }
+  };
 
   const deleteReply = async (commentId, replyId) => {
     const docRef = doc(db, "medirudiantoni2@gmail.com", postId);
-    const commentsCollectionRef = collection(docRef, 'comments');
+    const commentsCollectionRef = collection(docRef, "comments");
     const commentDocRef = doc(commentsCollectionRef, commentId);
-  
+
     try {
       // Membaca data komentar
       const commentDoc = await getDoc(commentDocRef);
       const replies = commentDoc.data().replies || [];
-  
-      // Menghapus reply dengan replyId dari array replies
-      const updatedReplies = replies.filter(reply => reply.id !== replyId);
 
-      console.log({updatedReplies})
-  
+      // Menghapus reply dengan replyId dari array replies
+      const updatedReplies = replies.filter((reply) => reply.id !== replyId);
+
+      console.log({ updatedReplies });
+
       // Menyimpan kembali data yang diperbarui
       await updateDoc(commentDocRef, {
-        replies: updatedReplies
-      }).then(res => console.log(res))
-  
+        replies: updatedReplies,
+      }).then((res) => console.log(res));
+
       console.log("Reply deleted successfully!");
     } catch (error) {
       console.error("Error deleting reply: ", error);
@@ -227,31 +238,39 @@ const PostComment = ({ postId }) => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        const docRef = doc(db, "medirudiantoni2@gmail.com", "comment visitors");
-        console.log("sukses");
-        const user = result.user.displayName;
-        setIsSignedIn(result.user);
-        if(toReply){
-          saveReply(commentId, user, result.user.photoURL, replyComment)
-        } else {
-          saveComment(result.user.displayName, result.user.photoURL);
-        }
-        return setDoc(
-          docRef,
-          {
-            [user]: {
-              name: result.user.displayName,
-              email: result.user.email,
-              phone: result.user.phoneNumber,
-              photoUrl: result.user.photoURL,
-              signInFrom: postId,
+        const user = result.user;
+
+        if (user) {
+          const docRef = doc(
+            db,
+            "medirudiantoni2@gmail.com",
+            "comment visitors"
+          );
+          setIsSignedIn(user);
+
+          if (toReply) {
+            saveReply(commentId, user.displayName, user.photoURL, replyComment);
+          } else {
+            saveComment(user.displayName, user.photoURL);
+          }
+
+          return setDoc(
+            docRef,
+            {
+              [user.displayName]: {
+                name: user.displayName,
+                email: user.email,
+                phone: user.phoneNumber,
+                photoUrl: user.photoURL,
+                signInFrom: postId,
+              },
             },
-          },
-          { merge: true }
-        );
+            { merge: true }
+          );
+        }
       })
       .then(() => {
-        setToReply(false)
+        setToReply(false);
       })
       .catch((error) => {
         console.log(error);
@@ -260,7 +279,8 @@ const PostComment = ({ postId }) => {
   };
 
   const onSubmitComment = () => {
-    if (isSignedIn) {
+    if (isSignedIn.displayName) {
+      console.log(isSignedIn.displayName, isSignedIn.photoURL);
       saveComment(isSignedIn.displayName, isSignedIn.photoURL);
     }
   };
@@ -274,7 +294,7 @@ const PostComment = ({ postId }) => {
   };
 
   return (
-    <div className="w-full max-w-5xl relative"> 
+    <div className="w-full max-w-5xl relative">
       <div className="w-full mb-5">
         <p className="text-2xl sm:text-4xl font-semibold sm:leading-[8vh]">
           What do you think? <br />
@@ -318,12 +338,12 @@ const PostComment = ({ postId }) => {
                       exit={{ scale: 0 }}
                       transition={{ duration: 0.1 + i / 50 }}
                       onClick={() => {
-                        setIsReaction(react)
+                        setIsReaction(react);
                         // setTimeout(() => {
                         //   setIsReaction()
                         // }, 2000);
-                        saveReactions(react)
-                        setIsReactButton(false)
+                        saveReactions(react);
+                        setIsReactButton(false);
                       }}
                       className="hover:text-4xl duration-100 cursor-pointer"
                     >
@@ -337,21 +357,36 @@ const PostComment = ({ postId }) => {
           <div className="text-2xl p-1 flex gap-2 absolute left-0 bottom-1/2">
             <AnimatePresence>
               {isReaction && (
-                <motion.div 
-                initial={{y: 10, opacity: 1}}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -200, opacity: 0 }}
-                transition={{ duration: 1.2, ease: 'linear' }}
-                className="relative">{isReaction.icon}</motion.div>
+                <motion.div
+                  initial={{ y: 10, opacity: 1 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -200, opacity: 0 }}
+                  transition={{ duration: 1.2, ease: "linear" }}
+                  className="relative"
+                >
+                  {isReaction.icon}
+                </motion.div>
               )}
             </AnimatePresence>
           </div>
         </div>
         <div className="flex gap-4">
           <div className="py-2 px-4 rounded-lg bg-slate-200 dark:bg-negative shadow-xl relative flex gap-2 group cursor-pointer">
-            {isReactions ? isReactions.length > 0 ? isReactions.map((reaction, i) => {
-              return <p key={i}>{reaction.icon} {reaction.length + 1}</p>
-            }) : <p>😁 0</p> : <p>😁 0</p>}
+            {isReactions ? (
+              isReactions.length > 0 ? (
+                isReactions.map((reaction, i) => {
+                  return (
+                    <p key={i}>
+                      {reaction.icon} {reaction.length + 1}
+                    </p>
+                  );
+                })
+              ) : (
+                <p>😁 0</p>
+              )
+            ) : (
+              <p>😁 0</p>
+            )}
           </div>
         </div>
       </div>
@@ -372,7 +407,9 @@ const PostComment = ({ postId }) => {
             className="py-2 px-4 w-fit h-fit rounded-lg bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-900 active:scale-95 duration-100"
           >
             {isSignedIn
-              ? `Send as ${isSignedIn.displayName}`
+              ? `Send ${
+                  isSignedIn.displayName ? `as ${isSignedIn.displayName}` : null
+                }`
               : "Send"}
           </button>
           {isSignedIn && (
@@ -386,7 +423,9 @@ const PostComment = ({ postId }) => {
         </div>
       </div>
       <div className="w-full mt-20 flex flex-col gap-4">
-        <p className="text-xl font-semibold leading-[8vh]">Comments: {isCommentData.length}</p>
+        <p className="text-xl font-semibold leading-[8vh]">
+          Comments: {isCommentData.length}
+        </p>
         <div className="comment-field w-full flex flex-col gap-4 text-sm lg:text-base">
           {isCommentData &&
             isCommentData.map((comment, i) => {
@@ -401,14 +440,31 @@ const PostComment = ({ postId }) => {
                     date={comment.date}
                     onSetReplyStatus={() => setToReply(!toReply)}
                     replyText={(val) => getReplyText(val)}
-                    onSubmitReply={isSignedIn ? () => onSubmitReply(comment.id, isSignedIn.displayName, isSignedIn.photoURL, isReplyText) : () => {
-                      handleSignIn(comment.id, isReplyText)
+                    onSubmitReply={() => {
+                      if (isSignedIn) {
+                        onSubmitReply(
+                          comment.id,
+                          isSignedIn.displayName,
+                          isSignedIn.photoURL,
+                          isReplyText
+                        );
+                      } else {
+                        handleSignIn(comment.id, isReplyText);
+                      }
                     }}
                     thisReplies={comment.replies}
-                    isDelete={comment.user === isSignedIn.displayName ? true : false}
-                    isDeleteReply={isSignedIn.displayName}
+                    isDelete={
+                      isSignedIn
+                        ? comment.user === isSignedIn.displayName
+                          ? true
+                          : false
+                        : false
+                    }
+                    isDeleteReply={isSignedIn ? isSignedIn.displayName : null}
                     onDelete={() => deleteCommentWithConfirmation(comment.id)}
-                    onDeleteReply={(val) => deleteReplyWithConfirmation(comment.id, val)}
+                    onDeleteReply={(val) =>
+                      deleteReplyWithConfirmation(comment.id, val)
+                    }
                   />
                 </div>
               );

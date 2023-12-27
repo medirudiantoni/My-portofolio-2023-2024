@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import crossSmall from '../../../../../../public/assets/images/icons/cross-small.png'
+import crossSmall from '../../../../../assets/img/icons/cross-small.png'
 
 const ExpertiseDetail = ({onClick, title, text}) => {
   return (

@@ -63,8 +63,10 @@ const Section2 = () => {
           className="w-full h-full flex items-center justify-center bg-primary dark:bg-primary-dark text-white relative"
         >
           <div className="w-full hover:container hover:px-5 md:hover:px-32 h-fit bord2 relative flex items-center cursor-pointer group duration-200">
-            <div className="absolute -top-20 sm:-top-36 left-5 sm:left-20 w-fit rotate-[135deg]">
-              <p className="text-6xl sm:text-9xl">👆</p>
+            <div className="absolute -top-20 sm:-top-36 left-5 sm:left-20 w-fit">
+              <div className="absolute bottom-full left-2/3 w-fit whitespace-nowrap -rotate-6 py-1.5 px-3 rounded-xl bg-black text-white lg:hidden">Click to read!!!</div>
+              <div className="absolute bottom-full left-2/3 w-fit whitespace-nowrap -rotate-6 py-1.5 px-3 rounded-xl bg-black text-white hidden lg:block">hover to read!!!</div>
+              <p className="text-6xl sm:text-9xl rotate-[135deg]">👆</p>
             </div>
             <div className="flex whitespace-nowrap group-hover:whitespace-normal text-sm sm:text-xl 2xl:text-2xl leading-[24px] sm:leading-[30px] 2xl:leading-[36px]">
               <p className="animate-marquee-slow group-hover:animate-none duration-200">

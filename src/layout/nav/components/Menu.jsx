@@ -56,7 +56,7 @@ const Menu = (props) => {
     initial="initial"
     animate="enter"
     exit="exit"
-    className={`w-screen h-screen fixed top-0 left-0 bg-primary dark:bg-primary-dark text-white flex flex-col items-center justify-end`}>
+    className={`w-screen h-[100dvh] fixed top-0 left-0 bg-primary dark:bg-primary-dark text-white flex flex-col items-center justify-end`}>
 
     <div className="container h-[78.5%] bord2 border-orange-400 flex justify-end px-5 lg:px-20 pb-[6vh] md:pb-10">
       <div className="w-full xl:w-4/6 h-full bord2 border-red-600 flex flex-col-reverse md:flex-row gap-5 justify-between">

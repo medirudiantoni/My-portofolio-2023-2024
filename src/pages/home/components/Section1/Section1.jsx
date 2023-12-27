@@ -115,8 +115,8 @@ const Section1 = () => {
           </div>
         </div>
       </div>
-      <div className="background absolute top-0 left-0 w-full h-screen flex items-center justify-center">
-        <p className="text-[20rem] font-outline-2-slate-200 text-transparent font-semibold dark:opacity-10 animate-baffle-bg">
+      <div className="background absolute top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden lg:whitespace-nowrap">
+        <p className="absolute text-[20rem] font-outline-2-slate-200 text-transparent font-semibold dark:opacity-10 animate-baffle-bg">
           Portfolio
         </p>
       </div>
