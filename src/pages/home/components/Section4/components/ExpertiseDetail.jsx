@@ -9,7 +9,7 @@ const ExpertiseDetail = ({onClick, title, text}) => {
     animate={{ y: '0vh' }}
     exit={{ y: '100vh' }}
     transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-    className="fixed z-[950] left-0 bottom-0 w-screen h-[90vh] px-2 lg:px-5 lg:flex lg:items-end lg:justify-center">
+    className="fixed z-[950] left-0 bottom-0 w-screen h-[90vh] px-2 lg:px-5 lg:hidden lg:items-end lg:justify-center">
         <div className="w-full lg:w-1/2 h-full rounded-t-xl bg-slate-200 text-black dark:bg-neutral-900 dark:text-white relative px-5 lg:px-10 py-10">
             <button onClick={onClick} className="absolute top-2 right-2 lg:top-5 lg:right-5 cursor-pointer w-10 p-2 aspect-square rounded-full bg-violet-700 active:bg-violet-950">
                 <img src={crossSmall} alt="x" className='w-full h-full object-cover' />

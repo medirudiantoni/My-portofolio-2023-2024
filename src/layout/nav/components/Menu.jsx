@@ -51,7 +51,7 @@ const Menu = (props) => {
   })
 
   return (
-    <motion.div 
+    <motion.div
     variants={menuSlide}
     initial="initial"
     animate="enter"
@@ -71,7 +71,10 @@ const Menu = (props) => {
           </div>
           <div className="md:mb-10 mt-5 md:mt-0 flex flex-col gap-2">
             <p className='hidden md:inline-block'>Dark mode :</p>
-            <div onClick={() => handleDarkModeToggle(!isDarkMode)} className="flex p-1 gap-2 justify-between rounded-full border-2 relative group cursor-pointer hover:bg-violet-800 duration-100 active:scale-95">
+            <div onClick={() => {
+                handleDarkModeToggle(!isDarkMode)
+                props.onClickItem()
+              }} className="flex p-1 gap-2 justify-between rounded-full border-2 relative group cursor-pointer hover:bg-violet-800 duration-100 active:scale-95">
               <div className={`absolute w-8 h-8 rounded-full bg-slate-200 top-1 duration-150 left-1 ${isDarkMode ? 'translate-x-10' : ''}`}></div>
               <div className={`w-8 h-8 rounded-full p-1.5 relative z-10`}>
                 <img src={isDarkMode ? brightnessWhite : brightness} alt="d" className={`w-full h-full object-cover`} />

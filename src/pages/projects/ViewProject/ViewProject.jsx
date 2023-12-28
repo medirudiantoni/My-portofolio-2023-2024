@@ -34,13 +34,13 @@ const ViewProject = () => {
                 className="w-full h-full object-cover object-center"
               />
             </div>
-            <div className="sm:w-full py-10 lg:py-0 lg:w-1/2 xl:w-3/5 2xl:w-2/3 h-fit flex flex-col gap-10 sm:text-xl border-teal-600">
-              <p
-                className="detail-project"
+            <div className="sm:w-full py-10 lg:py-0 lg:w-1/2 xl:w-3/5 2xl:w-2/3 h-fit flex flex-col gap-10 border-teal-600">
+              <div
+                className="detail-project flex flex-col gap-3"
                 dangerouslySetInnerHTML={{
-                  __html: work.detail.replace("\n", '<div class="my-5"></div>')
+                  __html: work.detail
                 }}
-              ></p>
+              />
               {
                 work.link && (
                   <a
