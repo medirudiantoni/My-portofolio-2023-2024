@@ -12,7 +12,7 @@ const ExpertiseDetailOnHover = ({ title, text, onEnter, onLeave }) => {
       onMouseLeave={onLeave}
       className="max-w-xs hidden lg:inline-block absolute z-50 right-0"
     >
-      <div className="w-full h-fit p-10 bg-slate-200 dark:bg-neutral-900 dark:text-white rounded-xl shadow-xl rotate-6">
+      <div className="w-full h-fit p-10 bg-slate-200 dark:bg-neutral-900 text-black dark:text-white rounded-xl shadow-xl rotate-6">
         <h2 className="text-xl font-semibold mb-2">{title}</h2>
         <p className="text-base">{text}</p>
       </div>

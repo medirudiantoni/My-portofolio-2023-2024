@@ -40,7 +40,7 @@ const Section4 = () => {
             <WorkTogather />
           </div>
         </div>
-        <div className="w-full h-screen bg-primary dark:bg-primary-dark dark:text-white px-5 sm:px-20 xl:px-32 flex items-center justify-center">
+        <div className="w-full h-screen bg-primary dark:bg-primary-dark text-white px-5 sm:px-20 xl:px-32 flex items-center justify-center">
           <div className="container">
             <div className="w-full h-fit py-20">
               <Expertise content={webDevContent} />
