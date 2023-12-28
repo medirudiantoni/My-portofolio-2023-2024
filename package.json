@@ -13,6 +13,7 @@
     "@emailjs/browser": "^3.11.0",
     "@studio-freight/lenis": "^1.0.27",
     "@tinymce/tinymce-react": "^4.3.2",
+    "@vercel/analytics": "^1.1.1",
     "aos": "^2.3.4",
     "baffle": "^0.3.6",
     "curtainsjs": "^8.1.5",

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { Analytics } from '@vercel/analytics/react';
 import gsap from "gsap";
 import MouseFollower from "mouse-follower";
 import "./scss/index.scss";
@@ -58,6 +59,7 @@ function App() {
         <Nav status={(val) => setOke(val)} />
         <ScrollToTop />
         <MyHelmet />
+        <Analytics />
         <AnimatePresence mode="wait">
           {firstLoad && <Preloader />}
         </AnimatePresence>

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Arrow from './Arrow'
 import checked from '../../../assets/img/icons/checked.png'
 import levelUp from '../../../assets/img/icons/levelUp.png'
@@ -74,8 +74,11 @@ const Menu = (props) => {
             <div onClick={() => {
                 handleDarkModeToggle(!isDarkMode)
                 props.onClickItem()
-              }} className="flex p-1 gap-2 justify-between rounded-full border-2 relative group cursor-pointer hover:bg-violet-800 duration-100 active:scale-95">
-              <div className={`absolute w-8 h-8 rounded-full bg-slate-200 top-1 duration-150 left-1 ${isDarkMode ? 'translate-x-10' : ''}`}></div>
+              }} className="flex p-1 gap-2 w-24 justify-between rounded-full border-2 relative group cursor-pointer hover:bg-violet-800 duration-100 active:scale-95">
+                <AnimatePresence mode='wait'>
+                  {isDarkMode && <motion.div initial={{ x: 0 }} animate={{ x: 52 }} exit={{ x: 0 }} transition={{ duration: 0.4 }} className={`absolute w-8 h-8 rounded-full bg-slate-200 top-1 duration-150 left-1`}></motion.div>}
+                  {!isDarkMode && <motion.div initial={{ x: 100 }} animate={{ x: 0 }} exit={{ x: 100 }} transition={{ duration: 0.4 }} className={`absolute w-8 h-8 rounded-full bg-slate-200 top-1 duration-150 left-1`}></motion.div>}
+                </AnimatePresence>
               <div className={`w-8 h-8 rounded-full p-1.5 relative z-10`}>
                 <img src={isDarkMode ? brightnessWhite : brightness} alt="d" className={`w-full h-full object-cover`} />
               </div>
