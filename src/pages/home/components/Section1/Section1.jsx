@@ -35,7 +35,7 @@ const Section1 = () => {
       char.start();
       setTimeout(() => {
         char.reveal()
-      }, 6000 + (i * delay));
+      }, 3500 + (i * delay));
     })
   }
 

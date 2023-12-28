@@ -34,7 +34,7 @@ const SvgPathAnimation = () => {
     }
   });
   return (
-    <div className="w-screen max-w-[1920px] bord2 border-blue-600 h-[650vh] flex items-center justify-center relative">
+    <div className="w-screen max-w-[1920px] hidden bord2 border-blue-600 h-[650vh] xl:flex items-center justify-center relative">
       <div
         id="triggerPath"
         ref={triggerRef}

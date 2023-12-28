@@ -104,7 +104,7 @@ const FooterAlt = () => {
                             </div>
                         </div>
                         <div className="w-full lg:text-center">
-                            <p className="text-xs lg:text-base">Version: <span className="font-bold">©</span> Medi Rudiant 2023</p>
+                            <p className="text-xs lg:text-base">Version: <span className="font-bold">©</span> Medi Rudiant 2024</p>
                         </div>
                     </div>
                 </div>

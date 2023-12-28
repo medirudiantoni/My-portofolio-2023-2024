@@ -44,7 +44,7 @@ function App() {
     setTimeout(() => {
       setFirstLoad(false)
       handleFalseFirstLoad()
-    }, 5000);
+    }, 3000);
   }, [])
 
   if(isDarkMode){
