@@ -56,7 +56,7 @@ const Section1 = () => {
         <div className="col-span-12 lg:col-span-4 w-full bord2 flex items-end">
           <p className="absolute -left-5 -translate-y-4 -rotate-6 text-8xl font-bold hidden lg:inline-block">"</p>
           <div className="relative w-full h-fit hidden lg:inline-block pr-10">
-            <p className="text-lg animate-baffle-p">
+            <p className="text-lg ">
               Hello, I am Medi, an appreciator of visually stunning graphic
               content, striving to bring it to life in tangible forms.
             </p>
