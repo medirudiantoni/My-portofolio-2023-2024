@@ -1,5 +1,20 @@
 .itemHover2 {
     border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    position: relative;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.itemHover2 .bgHover {
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
 }
 
 .itemHover2 .bgHover div {
@@ -16,4 +31,21 @@
 .itemHover2:hover .bgHover div {
     transform: scale(1);
     transition: 1s;
+}
+
+/* MD */
+@media screen and (min-width: 768px) {
+    .itemHover2 {
+        width: 176px;
+        height: 176px;
+    }
+}
+
+
+/* LG */
+@media screen and (min-width: 1024PX) {
+    .itemHover2 {
+        width: 224px;
+        height: 224px;
+    }
 }

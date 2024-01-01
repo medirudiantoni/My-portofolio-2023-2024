@@ -30,7 +30,7 @@ const Button1 = (props) => {
       <div
         data-cursor="-hidden"
         ref={itemHover}
-        className={`itemHover2 w-32 md:w-44 lg:w-56 aspect-square relative py-2 px-4 flex items-center justify-center rounded-full group overflow-hidden ${props.className}`}
+        className={`itemHover2 group ${props.className}`}
       >
         <div ref={bgHover} className="bgHover rounded-full w-fit h-fit absolute">
           <div className=""></div>

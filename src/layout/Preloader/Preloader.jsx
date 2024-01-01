@@ -25,9 +25,9 @@ const Preloader = ({ duration }) => {
       className="fixed top-0 right-0 z-[1200] bg-primary text-white w-screen h-[100dvh] origin-right flex items-center justify-center overflow-hidden"
     >
       <div className="absolute right-0 top-0 w-screen h-[100dvh] flex items-center justify-center">
-        <div className="absolute right-5 bottom-5 text-7xl font-semibold font-bebas-neue">
+        {/* <div className="absolute right-5 bottom-5 text-7xl font-semibold font-bebas-neue">
           {count}
-        </div>
+        </div> */}
         <div className="w-full max-w-lg h-0.5 bg-violet-400 relative z-10">
           <motion.div
             initial={{ width: '0%' }}

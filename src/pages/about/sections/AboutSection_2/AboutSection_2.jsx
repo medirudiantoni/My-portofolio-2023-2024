@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import mediUmy from '../../../../assets/img/me/medi-umy.jpg'
+import "./style.css"
 
 const AboutSection_2 = () => {
   const triggerRef = useRef(null)
@@ -9,8 +10,8 @@ const AboutSection_2 = () => {
   gsap.registerPlugin(ScrollTrigger)
   return (
     <section ref={triggerRef} className="w-screen px-5 h-fit relative">
-        <div ref={imgRef} className="absolute sm:flex -right-[33%] sm:-right-[16%] -top-52 w-[210px] sm:w-1/3 h-fit overflow-hidden">
-            <img src={mediUmy} alt="" className='w-full h-full object-cover object-bottom' />
+        <div ref={imgRef} className="about-img-2">
+            <img src={mediUmy} alt="medi" />
         </div>
         <div className="container px-5 sm:px-20 xl:px-32 mx-auto grid grid-cols-1 md:grid-cols-2 relative z-50">
             <div className="col-span-1 py-5">

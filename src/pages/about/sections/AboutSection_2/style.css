@@ -1,0 +1,25 @@
+.about-img-2 {
+    position: absolute;
+    right: -33%;
+    top: -208px;
+    width: 210px;
+    height: fit-content;
+    overflow: hidden;
+};
+
+.about-img-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+/* SM */
+@media screen and (min-width: 640px) {
+    .about-img-2 {
+        display: flex;
+        right: -16%;
+        width: 33.333333%;
+        height: fit-content;
+    };
+}
