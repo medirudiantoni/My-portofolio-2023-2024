@@ -1,0 +1,19 @@
+.blog-card {
+    height: fit-content;
+    position: relative;
+}
+
+.blog-card-poster {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    overflow: hidden;
+}
+
+.blog-card-poster img {
+    width: 100%;
+    height: fit-content;
+    max-height: 288px;
+    object-fit: cover;
+    object-position: center;
+}
