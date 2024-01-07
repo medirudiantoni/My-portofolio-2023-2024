@@ -24,7 +24,6 @@ import Building1 from "./Building/Building1";
 import transitionPage from "./layout/transition/Transition";
 import { RootContext } from "./context/RootContext";
 import Preloader from "./layout/Preloader/Preloader";
-import MyHelmet from "./layout/helmet/MyHelmet";
 import AssetChecker from "./layout/Preloader/AssetsChecker";
 
 const Homepage = transitionPage(Home);
@@ -58,7 +57,6 @@ function App() {
       <div className="w-full h-fit relative">
         <Nav status={(val) => setOke(val)} />
         <ScrollToTop />
-        <MyHelmet />
         <Analytics />
         <AnimatePresence mode="wait">
           {firstLoad && <Preloader />}

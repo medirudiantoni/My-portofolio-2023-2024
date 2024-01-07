@@ -11,6 +11,7 @@ import Section7 from './components/Section7/Section7'
 import Section8 from './components/Section8/Section8'
 import FooterAlt from '../../layout/footerAlt/FooterAlt'
 import { RootContext } from '../../context/RootContext'
+import MyHelmet from '../../layout/helmet/MyHelmet'
 
 const Home = () => {
   const { handleRegistRoute} = useContext(RootContext)
@@ -20,6 +21,7 @@ const Home = () => {
   }, [])
   return (
     <div className="w-full min-h-screen flex flex-col items-start justify-center bg-white dark:bg-neutral-900 dark:text-white">
+      <MyHelmet title={''} />
       <Section1 />
       <Section2 />
       <Section3 />

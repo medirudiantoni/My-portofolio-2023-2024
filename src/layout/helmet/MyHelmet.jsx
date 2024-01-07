@@ -2,11 +2,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import mediUnida from '../../assets/img/me/medi-unida.png'
 
-const MyHelmet = () => {
+const MyHelmet = ({title, keyword}) => {
   const keywords = [
     'medi rudiant', 
     'medirudiant', 
     'Medi Rudiant', 
+    keyword,
     'Oosthavent', 
     'lakaran', 
     'kota agung', 
@@ -26,7 +27,7 @@ const MyHelmet = () => {
   return (
     <Helmet>
       <meta charSet="utf-8" />
-      <title>Medi Rudiant - Portfolio</title>
+      <title>Medi Rudiant{title && title}</title>
       <meta name="description" content="Hello, I am Medi Rudiant, a front-end web developer and graphic designer" />
       <meta name="keywords" content={keywords.join(', ')} />
       <meta name="author" content="Medi Rudiant" />
