@@ -5,7 +5,8 @@ const RootContext = createContext(false);
 const RootProvider = ({ children }) => {
   const [currentRoute, setCurrentRoute] = useState(null);
   const [blogPosts, setBlogPosts] = useState();
-  const [isDarkMode, setIsDarkMode] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const [isDarkMode, setIsDarkMode] = useState();
+  // const [isDarkMode, setIsDarkMode] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
   const [firstLoad, setFirstLoad] = useState(true)
 
   useEffect(() => {
@@ -21,16 +22,16 @@ const RootProvider = ({ children }) => {
     };
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
-  }, [isDarkMode]);
+  // useEffect(() => {
+  //   localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
+  // }, [isDarkMode]);
 
-  useEffect(() => {
-    const storedDarkMode = JSON.parse(localStorage.getItem('isDarkMode'));
-    if(storedDarkMode){
-      setIsDarkMode(storedDarkMode);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedDarkMode = JSON.parse(localStorage.getItem('isDarkMode'));
+  //   if(storedDarkMode){
+  //     setIsDarkMode(storedDarkMode);
+  //   }
+  // }, []);
 
   const handleRegistRoute = (value) => {
     setCurrentRoute(value)

@@ -16,15 +16,12 @@ import Wsc from "./guide/wsc/Wsc";
 import Hsc from "./guide/hsc/Hsc";
 import Home from "./pages/home/Home";
 import Contact from "./pages/contact/contact";
-// import Editor from "./pages/blog/article/Editor";
 import TinyMce from "./pages/blog/article/TinyMce";
-// import Poster from "./pages/blog/article/Poster";
 import Post from "./pages/blog/post/Post";
 import Building1 from "./Building/Building1";
 import transitionPage from "./layout/transition/Transition";
 import { RootContext } from "./context/RootContext";
 import Preloader from "./layout/Preloader/Preloader";
-import AssetChecker from "./layout/Preloader/AssetsChecker";
 
 const Homepage = transitionPage(Home);
 
@@ -61,7 +58,6 @@ function App() {
         <AnimatePresence mode="wait">
           {firstLoad && <Preloader />}
         </AnimatePresence>
-        {/* <Preloader /> */}
         <main>
           <AnimatePresence mode="wait">
             <Routes location={loc} key={loc.pathname}>
